@@ -6,7 +6,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.debian.maven.util.Strings;
+import org.codehaus.plexus.util.StringUtils;
 
 public class DebianDependencies {
 
@@ -32,7 +32,7 @@ public class DebianDependencies {
 
     public void putInProperties(Properties depVars) {
         for (Type type : Type.values()) {
-            depVars.put(type.substvarName, Strings.join(deps.get(type), ", "));
+            depVars.put(type.substvarName, StringUtils.join(deps.get(type).iterator(), ", "));
         }
     }
 
