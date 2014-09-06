@@ -14,8 +14,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>classworlds</groupId>
-            <artifactId>classworlds</artifactId>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-classworlds</artifactId>
         </dependency>
     </dependencies>
 </project>
