@@ -27,9 +27,6 @@ sub new {
 	$this->{package} = shift @packages;
 	$this->{doc_package} = (grep /-doc$/, @packages)[0];
 	my $classconf = '/etc/maven/m2-debian.conf';
-	if (!$this->{doc_package}) {
-		$classconf = '/etc/maven/m2-debian-nodocs.conf';
-	}
 
 	my @classpath = ('/usr/share/maven/boot/classworlds-2.x.jar');
 	if (-e "$java_home/lib/tools.jar") {

@@ -58,11 +58,6 @@ debian/$(DEB_JAR_PACKAGE).poms:
 debian/maven.rules:
 	mh_lspoms --non-interactive --offline -p$(DEB_JAR_PACKAGE) --force
 
-ifeq (, $(DEB_DOC_PACKAGE))
-DEB_PATCHPOMS_ARGS += --build-no-docs
-debian/stamp-maven-build: override MAVEN_CLASSCONF = /etc/maven/m2-debian-nodocs.conf
-endif
-
 debian/stamp-poms-patched: debian/maven-repo
 	mh_patchpoms -p$(DEB_JAR_PACKAGE) --debian-build --keep-pom-version --maven-repo=$(DEB_MAVEN_REPO) $(DEB_PATCHPOMS_ARGS)
 	touch debian/stamp-poms-patched
